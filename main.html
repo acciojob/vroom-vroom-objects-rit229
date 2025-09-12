@@ -40,7 +40,26 @@ SportsCar.prototype.getTopSpeed = function() {
 const car = new SportsCar("Ferrari", "Testarossa", 200);
 console.log(car.getMakeModel());
 console.log(car.getTopSpeed()); 
+// Create more instances of SportsCar
+const car2 = new SportsCar("Lamborghini", "Aventador", 220);
+const car3 = new SportsCar("Porsche", "911", 210);
 
+// Log details of each car
+console.log(car2.getMakeModel());
+console.log(car2.getTopSpeed());
+
+console.log(car3.getMakeModel());
+console.log(car3.getTopSpeed());
+
+// Method to display all details
+SportsCar.prototype.getDetails = function() {
+    return `Make: ${this.make}, Model: ${this.model}, Top Speed: ${this.topSpeed} km/h`;
+};
+
+// Log details using the new method
+console.log(car.getDetails());
+console.log(car2.getDetails());
+console.log(car3.getDetails());
 </script>
 
 </body>

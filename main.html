@@ -1,67 +1,61 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-	<link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-	
-    <script type="text/javascript" src="./script.js">
-		// Car Constructor
-function Car(make, model) {
-    this.make = make;
-    this.model = model;
-}
+    <script type="text/javascript">
+        // Car Constructor
+        function Car(make, model) {
+            this.make = make;
+            this.model = model;
+        }
 
-// Method to get make and model
-Car.prototype.getMakeModel = function() {
-    return `${this.make} ${this.model}`;
-};
+        // Method to get make and model
+        Car.prototype.getMakeModel = function() {
+            return `${this.make} ${this.model}`;
+        };
 
-// SportsCar Constructor
-function SportsCar(make, model, topSpeed) {
-    Car.call(this, make, model); // Call the Car constructor to inherit properties
-    this.topSpeed = topSpeed; // Set the top speed
-}
+        // SportsCar Constructor
+        function SportsCar(make, model, topSpeed) {
+            Car.call(this, make, model); // Call the Car constructor to inherit properties
+            this.topSpeed = topSpeed; // Set the top speed
+        }
 
-// Inherit from Car
-SportsCar.prototype = Object.create(Car.prototype);
-SportsCar.prototype.constructor = SportsCar;
+        // Inherit from Car
+        SportsCar.prototype = Object.create(Car.prototype);
+        SportsCar.prototype.constructor = SportsCar;
 
-// Method to get top speed
-SportsCar.prototype.getTopSpeed = function() {
-    return this.topSpeed;
-};
+        // Method to get top speed
+        SportsCar.prototype.getTopSpeed = function() {
+            return this.topSpeed;
+        };
 
-// Testing the implementation
-const car = new SportsCar("Ferrari", "Testarossa", 200);
-console.log(car.getMakeModel());
-console.log(car.getTopSpeed()); 
-// Create more instances of SportsCar
-const car2 = new SportsCar("Lamborghini", "Aventador", 220);
-const car3 = new SportsCar("Porsche", "911", 210);
+        // Method to display all details
+        SportsCar.prototype.getDetails = function() {
+            return `Make: ${this.make}, Model: ${this.model}, Top Speed: ${this.topSpeed} km/h`;
+        };
 
-// Log details of each car
-console.log(car2.getMakeModel());
-console.log(car2.getTopSpeed());
+        // Testing the implementation
+        const car = new SportsCar("Ferrari", "Testarossa", 200);
+        console.log(car.getMakeModel());
+        console.log(car.getTopSpeed());
+        
+        // Create more instances of SportsCar
+        const car2 = new SportsCar("Lamborghini", "Aventador", 220);
+        const car3 = new SportsCar("Porsche", "911", 210);
 
-console.log(car3.getMakeModel());
-console.log(car3.getTopSpeed());
+        // Log details of each car
+        console.log(car2.getMakeModel());
+        console.log(car2.getTopSpeed());
 
-// Method to display all details
-SportsCar.prototype.getDetails = function() {
-    return `Make: ${this.make}, Model: ${this.model}, Top Speed: ${this.topSpeed} km/h`;
-};
+        console.log(car3.getMakeModel());
+        console.log(car3.getTopSpeed());
 
-// Log details using the new method
-console.log(car.getDetails());
-console.log(car2.getDetails());
-console.log(car3.getDetails());
-</script>
-
+        // Log details using the new method
+        console.log(car.getDetails());
+        console.log(car2.getDetails());
+        console.log(car3.getDetails());
+    </script>
 </body>
-
 </html>
